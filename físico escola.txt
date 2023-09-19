@@ -52,6 +52,18 @@ alter table possui add constraint fknum2 foreign key (fk_Turma_numero)  referenc
 
 create table leciona (idLeciona int primary key auto_increment, fk_Disciplina_cod_diciplina int not null, fk_Professor_matricula int not null);
 
+ insert into disciplina values ( 201, 'Promagração');
+
+ insert into disciplina values ( 202, 'Redes');
+
+insert into disciplina values ( null, 'Tratamento de Imagem');
+
+ insert into turma values ( 11, 'T', 'Técnico de de Informatica');
+
+insert into turma values ( 12, 'M', 'Técnico de Comunicação Visual');
+
+
+
 
 
 
