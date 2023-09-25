@@ -1,9 +1,6 @@
 create database escola;
-
 use escola;
-
 create table Aluno ( matricula int primary key auto_increment, nome varchar(80) not null, nascimento date, cpf char(14) not null unique, responsavel varchar(80) not null, email varchar(80) unique );
-
 show tables;
 
 desc aluno;
@@ -47,19 +44,12 @@ create table possui ( idPossui int primary key auto_increment, fk_Disciplina_cod
  alter table possui add constraint fkdis foreign key (fk_Disciplina_cod_disciplina)  references disciplina (cod_disciplina);
 
 alter table possui add constraint fknum2 foreign key (fk_Turma_numero)  references Turma (numero);
-
  create table professor (matricula int primary key auto_increment, nome varchar(80) not null, formacaoo varchar(30));
-
 create table leciona (idLeciona int primary key auto_increment, fk_Disciplina_cod_diciplina int not null, fk_Professor_matricula int not null);
-
  insert into disciplina values ( 201, 'Promagração');
-
  insert into disciplina values ( 202, 'Redes');
-
 insert into disciplina values ( null, 'Tratamento de Imagem');
-
  insert into turma values ( 11, 'T', 'Técnico de de Informatica');
-
 insert into turma values ( 12, 'M', 'Técnico de Comunicação Visual');
 
 
@@ -101,3 +91,14 @@ insert into estuda values ( null, 3010, 2023100);
 update disciplina set nome = 'Programação Python' where cod_disciplina = 201;
 
 
+select * from aluno where nascimento = '2007-03-14';
+select matricula, nome from aluno;
+select matricula, nome from aluno order by nome;
+select matricula, nome responsavel from aluno order by responsavel;
+select matricula, nome, responsavel from aluno order by responsavel;
+select matricula, nome, responsavel from aluno order by responsavel desc;
+select * from aluno where matricula = 3006;
+select * from aluno where matricula > 3006;
+select * from aluno where matricula <> 3006;
+
+select aluno.nome, turma.definicao, turma.turno from aluno, turma, estuda where aluno.matricula = estuda.fk_aluno_matricula and fk_turma_numero = turma.numero;
